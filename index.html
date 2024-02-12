@@ -12,6 +12,7 @@
     padding: 0;
     position: relative; /* Make the body a reference for absolute positioning */
     height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
   }
   #invitation, #response {
     text-align: center;
@@ -41,10 +42,21 @@
     background-color: #ff6666;
   }
   .heart {
-    animation: heartbeat 1.5s infinite alternate;
+    animation: floatHeart 5s infinite alternate linear; /* Adjust duration and timing function */
     font-size: 72px;
     color: #e91e63;
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @keyframes floatHeart {
+    0% {
+      transform: translate(-50%, -50%) translateX(-100vw) translateY(-100vh); /* Start position */
+    }
+    100% {
+      transform: translate(-50%, -50%) translateX(100vw) translateY(100vh); /* End position */
+    }
   }
   @keyframes heartbeat {
     from {
@@ -76,21 +88,7 @@
     invitation.style.display = "none";
     response.style.display = "block";
   }
-
-  // Move the heart around the page
-  var heart = document.querySelector('.heart');
-  var body = document.querySelector('body');
-  var bodyWidth = body.offsetWidth;
-  var bodyHeight = body.offsetHeight;
-  var interval = 10; // Change this value to adjust the speed of movement
-
-  setInterval(function() {
-    var x = Math.random() * (bodyWidth - heart.offsetWidth);
-    var y = Math.random() * (bodyHeight - heart.offsetHeight);
-    heart.style.left = x + 'px';
-    heart.style.top = y + 'px';
-  }, interval);
-
 </script>
 </body>
 </html>
+

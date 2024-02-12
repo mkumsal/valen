@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f8f8f8;
+            position: relative;
         }
         h1 {
             margin-top: 50px;
@@ -47,6 +48,17 @@
         button:hover {
             background-color: #c2185b;
         }
+        .cat {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: catWalk 10s infinite linear;
+        }
+        @keyframes catWalk {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(90%); }
+            100% { transform: translateX(0); }
+        }
     </style>
 </head>
 <body>
@@ -55,6 +67,7 @@
     <div class="heart">&#10084;</div>
     <p>Willst du am Valentinstag mit mir ausgehen?</p>
     <button onclick="antwort()">Ja, ich will!</button>
+    <img src="https://i.imgur.com/NUyttbn.gif" alt="Cat" class="cat">
 
     <script>
         function antwort() {

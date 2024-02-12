@@ -59,19 +59,26 @@
             50% { transform: translateX(90%); }
             100% { transform: translateX(0); }
         }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .cat {
+                display: none; /* Hide the cat on small screens */
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Valentinstag</h1>
-    <p>Hallo Liebe,</p>
+    <p id="message">Hallo Liebe,</p>
     <div class="heart">&#10084;</div>
     <p>Willst du am Valentinstag mit mir ausgehen?</p>
     <button onclick="antwort()">Ja, ich will!</button>
-    <img src="https://i.imgur.com/NUyttbn.gif" alt="Cat" class="cat">
+    <img src="https://i.imgur.com/zPnnUhx.gif" alt="Cat" class="cat">
 
     <script>
         function antwort() {
-            alert("Das ist wunderschön! Ich freue mich schon auf unseren Valentinstag!");
+            document.getElementById('message').innerHTML = "Das ist wunderschön! Ich freue mich schon auf unseren Valentinstag!";
         }
     </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentinstagseinladung</title>
+<title>Valentinstag mit Rabybebi</title>
 <style>
   body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -15,7 +15,7 @@
     align-items: center;
     height: 100vh;
   }
-  #invitation {
+  #invitation, #response {
     text-align: center;
   }
   #gif {
@@ -42,20 +42,37 @@
   button:hover {
     background-color: #ff6666;
   }
+  .heart {
+    animation: heartbeat 1.5s infinite alternate;
+    font-size: 72px;
+    color: #e91e63;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @keyframes heartbeat {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
 </style>
 </head>
 <body>
 <div id="invitation">
-  <h1>Möchtest du mit mir am Valentinstag ausgehen?</h1>
+  <h1>Rabykedi, möchtest du mit mir am Valentinstag ausgehen?</h1>
   <img src="https://i.imgur.com/NUyttbn.gif" alt="Süße Katze" id="gif">
-  <button onclick="showResponse()">Ja, ich will!</button>
+  <button onclick="showResponse()">Ja, herhalde!</button>
 </div>
 <div id="response">
-  <h1>Das freut mich!</h1>
+  <h1>Das freut mich canim, wir werden einen schönen Abend gemeinsam verbringen!</h1>
   <img src="https://i.imgur.com/4464XLo.gif" alt="Freudiges GIF">
 </div>
 
-<div id="heart"></div>
+<div class="heart">&hearts;</div>
 
 <script>
   function showResponse() {
@@ -64,22 +81,6 @@
     invitation.style.display = "none";
     response.style.display = "block";
   }
-
-  // Animiertes Herz
-  var heart = document.getElementById('heart');
-  heart.style.position = 'absolute';
-  heart.style.left = '50%';
-  heart.style.top = '50%';
-  heart.style.width = '100px';
-  heart.style.height = 'auto';
-  heart.style.transform = 'translate(-50%, -50%)';
-
-  var heartFrame = 0;
-  var heartAnimation = setInterval(function() {
-    heartFrame++;
-    heart.style.backgroundImage = 'url("https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif")';
-    heart.style.backgroundPosition = '0 -' + (heartFrame % 6) * 100 + 'px';
-  }, 100);
 </script>
 </body>
 </html>

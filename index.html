@@ -10,9 +10,7 @@
     background-color: #ffcccc;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative; /* Make the body a reference for absolute positioning */
     height: 100vh;
   }
   #invitation, #response {
@@ -47,9 +45,6 @@
     font-size: 72px;
     color: #e91e63;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
   }
   @keyframes heartbeat {
     from {
@@ -68,7 +63,7 @@
   <button onclick="showResponse()">Ja, herhalde!</button>
 </div>
 <div id="response">
-  <h1>Das freut mich canim, wir werden einen schönen Abend gemeinsam verbringen!</h1>
+  <h1>Das freut mich Rabycanim, wir werden einen schönen Abend gemeinsam verbringen!</h1>
   <img src="https://i.imgur.com/4464XLo.gif" alt="Freudiges GIF">
 </div>
 
@@ -81,6 +76,21 @@
     invitation.style.display = "none";
     response.style.display = "block";
   }
+
+  // Move the heart around the page
+  var heart = document.querySelector('.heart');
+  var body = document.querySelector('body');
+  var bodyWidth = body.offsetWidth;
+  var bodyHeight = body.offsetHeight;
+  var interval = 10; // Change this value to adjust the speed of movement
+
+  setInterval(function() {
+    var x = Math.random() * (bodyWidth - heart.offsetWidth);
+    var y = Math.random() * (bodyHeight - heart.offsetHeight);
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+  }, interval);
+
 </script>
 </body>
 </html>

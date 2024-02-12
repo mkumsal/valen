@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentinstagseinladung</title>
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     background-color: #ffcccc;
     margin: 0;
     padding: 0;
@@ -15,34 +15,71 @@
     align-items: center;
     height: 100vh;
   }
-  #container {
+  #invitation {
     text-align: center;
-    display: none;
   }
   #gif {
     max-width: 100%;
     height: auto;
   }
+  #response {
+    display: none;
+  }
+  button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 20px;
+    outline: none;
+  }
+  button:hover {
+    background-color: #ff6666;
+  }
 </style>
 </head>
 <body>
 <div id="invitation">
-  <h1>Rabykedi, möchtest du mit mir am Valentinstag ausgehen?</h1>
+  <h1>Möchtest du mit mir am Valentinstag ausgehen?</h1>
   <img src="https://i.imgur.com/NUyttbn.gif" alt="Süße Katze" id="gif">
   <button onclick="showResponse()">Ja, ich will!</button>
 </div>
-<div id="container">
-  <h1>Super canim, ich freue mich auf einen schönen Abend mit dir!</h1>
+<div id="response">
+  <h1>Das freut mich!</h1>
   <img src="https://i.imgur.com/4464XLo.gif" alt="Freudiges GIF">
 </div>
+
+<div id="heart"></div>
 
 <script>
   function showResponse() {
     var invitation = document.getElementById("invitation");
-    var container = document.getElementById("container");
+    var response = document.getElementById("response");
     invitation.style.display = "none";
-    container.style.display = "block";
+    response.style.display = "block";
   }
+
+  // Animiertes Herz
+  var heart = document.getElementById('heart');
+  heart.style.position = 'absolute';
+  heart.style.left = '50%';
+  heart.style.top = '50%';
+  heart.style.width = '100px';
+  heart.style.height = 'auto';
+  heart.style.transform = 'translate(-50%, -50%)';
+
+  var heartFrame = 0;
+  var heartAnimation = setInterval(function() {
+    heartFrame++;
+    heart.style.backgroundImage = 'url("https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif")';
+    heart.style.backgroundPosition = '0 -' + (heartFrame % 6) * 100 + 'px';
+  }, 100);
 </script>
 </body>
 </html>
